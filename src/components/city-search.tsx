@@ -6,7 +6,7 @@ import { useLocationSearch } from "../hooks/use-weather";
 import { useSearchHistory } from "../hooks/use-search-history";
 import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "../components/ui/command";
 import { Button } from "../components/ui/button";
-import { useFavorite } from "../hooks/use-favorite";
+import { useFavorites } from "../hooks/use-favorite";
 
 export function CitySearch() {
 	const [open, setOpen] = useState(false);
@@ -14,7 +14,7 @@ export function CitySearch() {
 	const navigate = useNavigate();
 
 	const { data: locations, isLoading } = useLocationSearch(query);
-	const { favorites } = useFavorite();
+	const { favorites } = useFavorites();
 	const { history, clearHistory, addToHistory } = useSearchHistory();
 
 	const handleSelect = (cityData: string) => {

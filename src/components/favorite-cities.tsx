@@ -1,6 +1,6 @@
-import type { MouseEvent, MouseEventHandler } from "react";
+import type { MouseEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFavorite } from "../hooks/use-favorite";
+import { useFavorites } from "../hooks/use-favorite";
 import { ScrollArea } from "./ui/scroll-area";
 import { useWeatherQuery } from "../hooks/use-weather";
 import { Button } from "./ui/button";
@@ -16,7 +16,7 @@ interface FavoriteCityTableProps {
 }
 
 export function FavoriteCities() {
-	const { favorites, removeFavorite } = useFavorite();
+	const { favorites, removeFavorite } = useFavorites();
 	if (!favorites.length) return null;
 	return (
 		<>
